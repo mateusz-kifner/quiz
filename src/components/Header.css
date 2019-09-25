@@ -17,8 +17,12 @@
     color: white;
 }
 
-.header a {
+.header a,
+.header button {
     color: white;
+    background-color: unset;
+    outline: none;
+    border: none;
     text-decoration: none;
     margin: 1rem;
     display: block;
@@ -27,6 +31,7 @@
     font-weight: bold;
 }
 
-.header a:hover {
+.header a:hover,
+.header button:hover {
     color: #999;
 }

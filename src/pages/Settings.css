@@ -1,0 +1,30 @@
+.settings {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(90deg, var(--theme-color-dark), var(--theme-color));
+}
+
+.settings__exit {
+    all: unset;
+    position: absolute;
+    height: 3rem;
+    width: 3rem;
+    top: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    color: transparent;
+    background-image: url('../assets/icons/White_x.png');
+    background-size: 100% 100%;
+}
+
+.settings__exit:hover,
+.settings__exit:active {
+    filter: brightness(60%);
+}

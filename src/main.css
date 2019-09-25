@@ -14,12 +14,52 @@ html,
 
 :root {
     --theme-color: #0952d6;
-    --background_color: #33333;
+    --theme-color-dark: #252a57;
+    --background_color: #333333;
+    --font-color: #ffffff;
+    color: var(--font-color);
+    font-size: calc(10px + (16 - 10) * ((100vw - 100px) / (720 - 100)));
 }
 
-/* FOOTER hack */
+@media (min-width:720px) {
+    :root {
+        font-size: 16px;
+    }
+}
+
+/* FOOTER hack.
+this dirty hack ensures 
+that navigation is not overlaped by content*/
 .App::after {
     content: '';
     height: 4rem;
     display: block;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.05rem;
+}
+
+h3 {
+    font-size: 2.44rem;
+}
+
+h4 {
+    font-size: 1.95rem;
+}
+
+h5 {
+    font-size: 1.56rem;
+}
+
+h6 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
 }
