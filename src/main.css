@@ -5,33 +5,42 @@
 
 body,
 html,
-#root,
-.App {
-    height: 100%;
-    max-width: 100vw;
+#root {
+    height: 100vh;
+    max-width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 :root {
     --theme-color: #0952d6;
     --theme-color-dark: #252a57;
-    --background_color: #333333;
+    --background-color: #333333;
     --font-color: #ffffff;
     color: var(--font-color);
     font-size: calc(10px + (16 - 10) * ((100vw - 100px) / (720 - 100)));
 }
 
-@media (min-width:720px) {
+@media (min-width: 720px) {
     :root {
         font-size: 16px;
     }
 }
 
+body {
+    font-size: 1.25rem;
+    background: var(--background-color);
+}
+
+main {
+    z-index: 10;
+}
+
 /* FOOTER hack.
 this dirty hack ensures 
 that navigation is not overlaped by content*/
-.App::after {
-    content: '';
+main::after {
+    content: "";
     height: 4rem;
     display: block;
 }
@@ -40,7 +49,8 @@ h1 {
     font-size: 4rem;
 }
 
-h2 {
+h2,
+.text-superbig {
     font-size: 3.05rem;
 }
 
@@ -48,7 +58,8 @@ h3 {
     font-size: 2.44rem;
 }
 
-h4 {
+h4,
+.text-verybig {
     font-size: 1.95rem;
 }
 
@@ -56,10 +67,61 @@ h5 {
     font-size: 1.56rem;
 }
 
-h6 {
+h6,
+.text-big {
     font-size: 1.25rem;
 }
 
-p {
-    font-size: 1rem;
+p,
+.text-normal {
+    font-size: 1.25rem;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+    background: var(--theme-color-dark);
+    padding: 1rem;
+    font-size: 1.56rem;
+    cursor: pointer;
+    border-radius: 1rem;
+    color: var(--font-color);
+    margin: 0;
+    border: 0.25rem solid var(--theme-color-dark);
+    box-sizing: content-box;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: var(--background-color);
+    border-color: var(--background-color);
+}
+
+input[type="submit"]:focus,
+input[type="button"]:focus {
+    border-color: var(--background-color);
+    background: var(--background-color);
+}
+
+input {
+    background: #eeeeee;
+    padding: 1rem;
+    font-size: 1.56rem;
+    border-radius: 1rem;
+    color: #000000;
+    border: 0.25rem solid var(--theme-color-dark);
+}
+
+input:focus {
+    border: 0.25rem solid var(--background-color);
+    outline: none;
+}
+
+.move-up {
+    transform: translate(0, -100%);
+}
+
+.move-left {
+    transform: translate(-100%, 0);
 }

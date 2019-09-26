@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 
@@ -7,8 +8,7 @@ class Header extends Component {
         return (
             <header className="header">
                 <h1>Quiz App</h1>
-                <button>Settings</button>
-                <button>Login</button>
+                <NavLink to="/Settings">Settings</NavLink>
             </header>
         );
     }
