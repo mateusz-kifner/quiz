@@ -11,7 +11,7 @@ var icons = require.context("../assets/icons", true);
 |--------------------------------------------------
 */
 
-export default props => {
+const VerticalButton = props => {
     return (
         <button className="vertical-button">
             <img src={icons(props.icon)} alt="" />
@@ -19,3 +19,5 @@ export default props => {
         </button>
     );
 };
+
+export default VerticalButton;

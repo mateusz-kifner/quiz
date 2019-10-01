@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Grades extends Component {
-    render() {
-        return <div>Grades</div>;
-    }
-}
+const Grades = () => {
+    return <div>Grades</div>;
+};
 
 export default Grades;
