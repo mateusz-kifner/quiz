@@ -1,24 +1,24 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import useHttp from "../hooks/useHttp";
+import { withRouter } from "react-router";
 
 import VerticalButton from "../components/VerticalButton";
 
 import "./Puzzles.css";
 
 const Puzzles = props => {
+    console.log("test");
+    const auth = useContext(AuthContext);
     const [currentPuzzle, setCurrentPuzzle] = useState({
         puzzleId: "",
         puzzleData: {}
     });
     const [puzzleList, setPuzzleList] = useState([]);
 
-    const auth = useContext(AuthContext);
-
     const [sendReq, loading, resData] = useHttp();
 
     useEffect(() => {
-        console.log("send res effect");
         if (currentPuzzle.puzzleId !== "") {
             console.log("send res id");
             sendReq("/Quizzes/" + currentPuzzle.puzzleId);
@@ -26,13 +26,11 @@ const Puzzles = props => {
             console.log("send res quizzes");
             sendReq("/Quizzes");
         }
-    });
+    }, [currentPuzzle.puzzleId]);
 
     useEffect(() => {
-        console.log("loding res effect");
-
         if (loading === false) {
-            console.log(resData);
+            console.log("loading, data:", resData);
         }
     }, [loading]);
 
@@ -52,4 +50,4 @@ const Puzzles = props => {
     );
 };
 
-export default Puzzles;
+export default withRouter(Puzzles);

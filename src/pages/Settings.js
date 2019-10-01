@@ -1,10 +1,17 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { withRouter, useHistory } from "react-router";
 
 import "./Settings.css";
 
 const Settings = props => {
     const auth = useContext(AuthContext);
+
+    const history = useHistory();
+
+    const onExit = () => {
+        history.push("/Puzzles");
+    };
 
     return (
         <div>
@@ -20,11 +27,11 @@ const Settings = props => {
                     <h4>Log out</h4>
                 </li>
             </ul>
-            <button className="settings__exit" onClick={this.onExit}>
+            <button className="settings__exit" onClick={onExit}>
                 exit
             </button>
         </div>
     );
 };
 
-export default Settings;
+export default withRouter(Settings);

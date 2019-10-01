@@ -29,7 +29,7 @@ const AuthContextProvider = props => {
         console.log(token_d);
         if (token_l !== null && token_d.exp > Math.floor(Date.now() / 1000)) {
             singIn(token_l, token_d.login, token_d._id);
-            history.push("/Puzzle");
+            history.push("/Puzzles");
         }
         // eslint-disable-next-line
     }, []);
@@ -37,7 +37,7 @@ const AuthContextProvider = props => {
     const singIn = (token, login, userId) => {
         setAuth({ token, login, userId });
         localStorage.setItem("token", token);
-        history.push("/Puzzle");
+        history.push("/Puzzles");
     };
 
     const singUp = (login, email, password) => {};

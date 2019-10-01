@@ -1,4 +1,5 @@
 import React, { useState, useContext, useRef, useEffect } from "react";
+import { withRouter } from "react-router";
 
 import "./Auth.css";
 import logo from "../assets/icons/Puzzle_white.png";
@@ -83,4 +84,4 @@ const Auth = () => {
     );
 };
 
-export default Auth;
+export default withRouter(Auth);

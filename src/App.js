@@ -21,24 +21,12 @@ const App = props => {
                 <Header profile_icon="./profile.png" />
                 <main>
                     <Switch>
-                        {auth.token === null && (
-                            <Redirect from="/" to="/Auth" exact />
-                        )}
-                        {auth.token !== null && (
-                            <Route path="/Puzzles" component={Puzzles} />
-                        )}
-                        {auth.token === null && (
-                            <Route path="/Auth" component={Auth} />
-                        )}
-                        {auth.token !== null && (
-                            <Route path="/Grades" component={Grades} />
-                        )}
-                        {auth.token !== null && (
-                            <Route path="/Chat" component={null} />
-                        )}
-                        {auth.token !== null && (
-                            <Route path="/Settings" component={Settings} />
-                        )}
+                        {<Redirect from="/" to="/Auth" exact />}
+                        {<Route path="/Puzzles" component={Puzzles} />}
+                        {<Route path="/Auth" component={Auth} />}
+                        {<Route path="/Grades" component={Grades} />}
+                        {<Route path="/Chat" component={null} />}
+                        {<Route path="/Settings" component={Settings} />}
                     </Switch>
                 </main>
                 <Nav
