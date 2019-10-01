@@ -35,3 +35,12 @@
 .header button:hover {
     color: #999;
 }
+
+.header img {
+    height: 4rem;
+}
+
+.header > a > img,
+.header > button > img {
+    border-radius: 50%;
+}

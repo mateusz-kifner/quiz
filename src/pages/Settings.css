@@ -15,8 +15,8 @@
         var(--theme-color-dark),
         var(--theme-color)
     );
-    transition-property: all;
-    transition-timing-function: ease-out;
+    /* transition-property: all;
+    transition-timing-function: ease-out; */
 }
 
 .settings__exit {

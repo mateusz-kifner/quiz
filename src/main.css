@@ -118,10 +118,10 @@ input:focus {
     outline: none;
 }
 
-.move-up {
+/* .move-up {
     transform: translate(0, -100%);
 }
 
 .move-left {
     transform: translate(-100%, 0);
-}
+} */

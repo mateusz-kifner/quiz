@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import AuthContext from "./context/AuthContext";
-import jwt from "jsonwebtoken";
+import { AuthContext, AuthContextProvider } from "./context/AuthContext";
 
 import Nav from "./components/Nav";
 import Header from "./components/Header";
@@ -13,73 +12,57 @@ import Settings from "./pages/Settings";
 
 import "./main.css";
 
-class App extends Component {
-    state = {
-        token: null,
-        login: null,
-        userId: null,
-        host: "http://192.168.1.116:3001"
-    };
+const App = props => {
+    const auth = useContext(AuthContext);
 
-    singIn = (token, userId, login) => {
-        this.setState({ token, login, userId });
-    };
-
-    singUp = (login, email, password) => {};
-
-    singOut = () => {
-        this.setState({ token: null, login: null, userId: null });
-    };
-
-    componentDidMount = () => {
-        let token_l = localStorage.getItem("token");
-        let token_d = jwt.decode(token_l);
-        if (token_l !== null && token_d.exp > Math.floor(Date.now() / 1000)) {
-            this.singIn(token_l, token_d.login, token_d._id);
-        }
-    };
-
-    render() {
-        return (
-            <BrowserRouter>
-                <AuthContext.Provider
-                    value={{
-                        token: this.state.token,
-                        userId: this.state.userId,
-                        login: this.state.login,
-                        host: this.state.host,
-                        singIn: this.singIn,
-                        singUp: this.singUp
-                    }}
-                >
-                    <Header />
-                    <main>
-                        <Switch>
-                            {this.state.token === null && (
-                                <Redirect from="/" to="/Auth" exact />
-                            )}
-                            {this.state.token !== null && (
-                                <Route path="/Puzzles" component={Puzzles} />
-                            )}
-                            {this.state.token === null && (
-                                <Route path="/Auth" component={Auth} />
-                            )}
-                            {this.state.token !== null && (
-                                <Route path="/Grades" component={Grades} />
-                            )}
-                            {this.state.token !== null && (
-                                <Route path="/Chat" component={null} />
-                            )}
-                            {this.state.token !== null && (
-                                <Route path="/Settings" component={Settings} />
-                            )}
-                        </Switch>
-                    </main>
-                    <Nav />
-                </AuthContext.Provider>
-            </BrowserRouter>
-        );
-    }
-}
+    return (
+        <BrowserRouter>
+            <AuthContextProvider>
+                <Header profile_icon="./profile.png" />
+                <main>
+                    <Switch>
+                        {auth.token === null && (
+                            <Redirect from="/" to="/Auth" exact />
+                        )}
+                        {auth.token !== null && (
+                            <Route path="/Puzzles" component={Puzzles} />
+                        )}
+                        {auth.token === null && (
+                            <Route path="/Auth" component={Auth} />
+                        )}
+                        {auth.token !== null && (
+                            <Route path="/Grades" component={Grades} />
+                        )}
+                        {auth.token !== null && (
+                            <Route path="/Chat" component={null} />
+                        )}
+                        {auth.token !== null && (
+                            <Route path="/Settings" component={Settings} />
+                        )}
+                    </Switch>
+                </main>
+                <Nav
+                    links={[
+                        {
+                            to: "/Puzzles",
+                            name: "Puzzles",
+                            icon: "./Puzzle_white.png"
+                        },
+                        {
+                            to: "/Chat",
+                            name: "Chat",
+                            icon: "./chat_white.png"
+                        },
+                        {
+                            to: "/Grades",
+                            name: "Grades",
+                            icon: "./trophy_white.png"
+                        }
+                    ]}
+                />
+            </AuthContextProvider>
+        </BrowserRouter>
+    );
+};
 
 export default App;
