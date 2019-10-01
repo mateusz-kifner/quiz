@@ -14,16 +14,16 @@ var icons = require.context("../assets/icons", true);
 */
 
 const Nav = props => (
-    <nav className="main-nav">
-        {props.links.map(link => {
-            return (
-                <NavLink key={link.name} to={link.to}>
-                    {link.icon && <img src={icons(link.icon)} alt="" />}
-                    {link.name}
-                </NavLink>
-            );
-        })}
-    </nav>
+  <nav className="main-nav">
+    {props.links.map(link => {
+      return (
+        <NavLink key={link.name} to={link.to}>
+          {link.icon && <img src={icons(link.icon)} alt="" />}
+          {link.name}
+        </NavLink>
+      );
+    })}
+  </nav>
 );
 
 export default Nav;

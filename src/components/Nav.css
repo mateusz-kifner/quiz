@@ -6,12 +6,13 @@
     display: flex;
     width: 100%;
     bottom: 0;
+    left: 0;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
 }
 
-.main-nav a {
+.main-nav > a {
     color: white;
     text-decoration: none;
     margin: 1rem;
@@ -25,14 +26,15 @@
     align-items: center;
 }
 
-.main-nav a:hover {
+.main-nav > a:hover {
     color: #999;
 }
 
-.main-nav img {
+.main-nav > a > img {
     min-width: 0;
     min-height: 0;
     max-height: 100%;
     height: 2em;
     margin-right: 0.5em;
+    object-fit: contain;
 }

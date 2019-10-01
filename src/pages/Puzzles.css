@@ -1,40 +1,29 @@
 .puzzles {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     padding-top: 1rem;
-}
-
-.puzzle-preview {
-    margin: 0 1rem 1rem 1rem;
-    padding: 1rem;
-    background: var(--theme-color-dark);
-    border-radius: 1rem;
-    cursor: pointer;
-}
-
-.puzzle-preview img {
-    width: 10rem;
-    float: left;
-}
-
-.puzzle-preview__container {
-    margin-left: 1.5rem;
-}
-
-.puzzle-preview__container > * + * {
-    margin-top: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
 }
 
 .puzzle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0 1rem 1rem 1rem;
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
     background: var(--theme-color-dark);
-    border-radius: 1rem;
+    z-index: 999;
+    text-align: center;
 }
 
 .puzzle img {
-    width: 10rem;
-    float: left;
+    height: 12rem;
+    object-fit: contain;
 }

@@ -13,44 +13,45 @@ import Settings from "./pages/Settings";
 import "./main.css";
 
 const App = props => {
-    const auth = useContext(AuthContext);
+  const auth = useContext(AuthContext);
 
-    return (
-        <BrowserRouter>
-            <AuthContextProvider>
-                <Header profile_icon="./profile.png" />
-                <main>
-                    <Switch>
-                        {<Redirect from="/" to="/Auth" exact />}
-                        {<Route path="/Puzzles" component={Puzzles} />}
-                        {<Route path="/Auth" component={Auth} />}
-                        {<Route path="/Grades" component={Grades} />}
-                        {<Route path="/Chat" component={null} />}
-                        {<Route path="/Settings" component={Settings} />}
-                    </Switch>
-                </main>
-                <Nav
-                    links={[
-                        {
-                            to: "/Puzzles",
-                            name: "Puzzles",
-                            icon: "./Puzzle_white.png"
-                        },
-                        {
-                            to: "/Chat",
-                            name: "Chat",
-                            icon: "./chat_white.png"
-                        },
-                        {
-                            to: "/Grades",
-                            name: "Grades",
-                            icon: "./trophy_white.png"
-                        }
-                    ]}
-                />
-            </AuthContextProvider>
-        </BrowserRouter>
-    );
+  return (
+    <BrowserRouter>
+      <AuthContextProvider>
+        <Header profile_icon="./profile.png" />
+        <main>
+          <Switch>
+            {<Redirect from="/" to="/Auth" exact />}
+            {<Route path="/Puzzles" component={Puzzles} />}
+            {<Route path="/Game" component={Game} />}
+            {<Route path="/Auth" component={Auth} />}
+            {<Route path="/Grades" component={Grades} />}
+            {<Route path="/Chat" component={null} />}
+            {<Route path="/Settings" component={Settings} />}
+          </Switch>
+        </main>
+        <Nav
+          links={[
+            {
+              to: "/Puzzles",
+              name: "Puzzles",
+              icon: "./Puzzle_white.png"
+            },
+            {
+              to: "/Chat",
+              name: "Chat",
+              icon: "./chat_white.png"
+            },
+            {
+              to: "/Grades",
+              name: "Grades",
+              icon: "./trophy_white.png"
+            }
+          ]}
+        />
+      </AuthContextProvider>
+    </BrowserRouter>
+  );
 };
 
 export default App;

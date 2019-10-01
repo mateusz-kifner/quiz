@@ -1,0 +1,16 @@
+.vertical-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 10rem;
+    min-height: 12rem;
+}
+.vertical-button img {
+    max-height: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.vertical-button:hover {
+    background-color: var(--theme-color);
+}

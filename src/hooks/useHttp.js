@@ -14,41 +14,43 @@ import Axios from "axios";
 */
 
 const useHttp = () => {
-    const [resData, setResData] = useState({});
-    const [loading, setLoading] = useState(true);
-    const auth = useContext(AuthContext);
+  const [resData, setResData] = useState({});
+  const [loading, setLoading] = useState(true);
+  const auth = useContext(AuthContext);
 
-    const sendRequest = async (relativeUrl, data) => {
-        console.log("req to " + relativeUrl);
-        let resHandle;
-        if (data)
-            resHandle = await Axios.post(
-                auth.host + relativeUrl,
-                data,
-                auth.axiosConfig
-            );
-        else
-            resHandle = await Axios.get(
-                auth.host + relativeUrl,
-                auth.axiosConfig
-            );
-        Promise.all([resHandle])
-            .then(res => {
-                console.log("Axios res:", res[0]);
-                setResData(res[0]);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.log("Axios err:", err);
-                if (err.response.data.error.message === "Auth failed") {
-                    auth.goSingin();
-                } else {
-                    setResData({});
-                }
-                setLoading(false);
-            });
-    };
-    return [sendRequest, loading, resData];
+  const resultHandler = res => {
+    console.log("Axios res:", res);
+    setResData(res);
+    setLoading(false);
+  };
+  const errorHandler = err => {
+    console.log("Axios err:", err);
+    if (
+      err.response !== undefined &&
+      err.response.data.error.message === "Auth failed"
+    ) {
+      auth.singOut();
+    } else {
+      setResData(undefined);
+    }
+    setLoading(false);
+  };
+
+  const sendRequest = async (relativeUrl, data) => {
+    setLoading(true);
+    console.log("req to " + relativeUrl);
+    if (data)
+      await Axios.post(auth.host + relativeUrl, data, auth.axiosConfig).then(
+        resultHandler,
+        errorHandler
+      );
+    else
+      await Axios.get(auth.host + relativeUrl, auth.axiosConfig).then(
+        resultHandler,
+        errorHandler
+      );
+  };
+  return [sendRequest, loading, resData];
 };
 
 export default useHttp;

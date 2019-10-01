@@ -1,4 +1,7 @@
 import React from "react";
+
+import "./VerticalButton.css";
+
 var icons = require.context("../assets/icons", true);
 
 /**
@@ -12,12 +15,12 @@ var icons = require.context("../assets/icons", true);
 */
 
 const VerticalButton = props => {
-    return (
-        <button className="vertical-button">
-            <img src={icons(props.icon)} alt="" />
-            <h3>{props.title}</h3>
-        </button>
-    );
+  return (
+    <button className="vertical-button" onClick={props.onClick}>
+      <img src={icons(props.icon)} alt="" />
+      <h3>{props.title}</h3>
+    </button>
+  );
 };
 
 export default VerticalButton;
