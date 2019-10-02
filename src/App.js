@@ -9,6 +9,7 @@ import Puzzles from "./pages/Puzzles";
 import Auth from "./pages/Auth";
 import Grades from "./pages/Grades";
 import Settings from "./pages/Settings";
+import Game from "./pages/Game";
 
 import "./main.css";
 

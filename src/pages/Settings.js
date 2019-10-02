@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { withRouter, useHistory } from "react-router";
+import { useHistory } from "react-router";
 
 import "./Settings.css";
 

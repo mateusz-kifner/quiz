@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import useHttp from "../hooks/useHttp";
-import { withRouter, useHistory } from "react-router";
+import { useHistory } from "react-router";
 
 import VerticalButton from "../components/VerticalButton";
 import Nav from "../components/Nav";
@@ -22,7 +22,7 @@ const Puzzles = props => {
     console.log(path);
     if (path !== undefined && path !== "") setCurrentPuzzleId(path);
     else setCurrentPuzzleId("");
-  }, []);
+  }, [props.location]);
 
   useEffect(() => {
     if (currentPuzzleId !== "") {
@@ -87,7 +87,7 @@ const Puzzles = props => {
                   icon: "./arrow_right.png"
                 },
                 {
-                  to: "/test",
+                  to: "/Game/" + currentPuzzleId,
                   name: "Start",
                   icon: "./chat_white.png"
                 }
