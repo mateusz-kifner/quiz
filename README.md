@@ -15,6 +15,7 @@ Rozpoczęcie gry | trwają prace
 Sprawdzanie odpowiedzi | trwają prace
 Zapis wyników | planowane
 Opcje | trwają prace
+Themes | planowane
 
 [![](./src/assets/img/alpha01_small.png)](./src/assets/img/alpha01.png)
 [![](./src/assets/img/alpha02_small.png)](./src/assets/img/alpha02.png)
