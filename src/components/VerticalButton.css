@@ -1,16 +1,17 @@
 .vertical-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-width: 10rem;
-    min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 10rem;
+  min-height: 12rem;
+  box-shadow: 0.5rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.25);
 }
 .vertical-button img {
-    max-height: 4rem;
-    margin-bottom: 0.5rem;
+  max-height: 4rem;
+  margin-bottom: 0.5rem;
 }
 
 .vertical-button:hover {
-    background-color: var(--theme-color);
+  background-color: var(--theme-color);
 }

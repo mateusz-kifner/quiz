@@ -1,54 +1,64 @@
 .auth {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        var(--theme-color-dark),
-        var(--theme-color)
-    );
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    /* transition-property: all; */
-    /* transition-timing-function: ease-in; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--theme-color-dark),
+    var(--theme-color)
+  );
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* transition-property: all; */
+  /* transition-timing-function: ease-in; */
 }
 
 .auth img {
-    max-width: 8rem;
-    min-width: 1rem;
-    display: block;
-    margin-top: 3rem;
+  max-width: 8rem;
+  min-width: 1rem;
+  display: block;
+  margin-top: 3rem;
 }
 
 .auth h2 {
-    text-align: center;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .auth * {
-    min-width: 20rem;
-    width: 20rem;
-    margin: 0.5rem;
+  min-width: 20rem;
+  width: 20rem;
+  margin: 0.5rem;
 }
 
 .auth input[type="submit"] {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .auth div {
-    margin-top: 2rem;
-    text-align: center;
-    color: #aaa;
+  margin-top: 2rem;
+  text-align: center;
+  color: #aaa;
 }
 
-.auth div a {
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
+.auth div a,
+.auth div button {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  width: initial;
+  min-width: 0;
+  font-size: 1em;
+  margin-left: 0.5rem;
 }

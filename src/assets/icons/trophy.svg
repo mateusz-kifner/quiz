@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 1024 1024"
+   height="1024"
+   width="1024">
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-26.06671)"
+     id="layer1">
+    <path
+       id="path13955"
+       transform="translate(0,26.06671)"
+       d="M 208 94 C 180.38691 94.003 158.00276 116.38691 158 144 C 158 249.72222 188.67096 340.11166 237.32812 405.76953 C 277.07283 459.40094 329.90345 497.59961 388.11719 509.80469 C 407.44556 596.96281 400.93686 681.17955 373.77539 732.67188 C 363.16043 752.79557 325.95852 782.66236 290.18945 802.22461 C 254.42039 821.78685 223.29492 832.87305 223.29492 832.87305 C 200.36228 841.01681 186.62306 864.48714 190.74805 888.4707 C 194.87304 912.45425 215.66429 929.98602 240 930 L 512 930 L 784 930 C 808.33571 929.986 829.12696 912.45425 833.25195 888.4707 C 837.37694 864.48714 823.63772 841.01681 800.70508 832.87305 C 800.70508 832.87305 769.57961 821.78685 733.81055 802.22461 C 698.04148 782.66236 660.83957 752.79557 650.22461 732.67188 C 623.06314 681.17955 616.55444 596.96281 635.88281 509.80469 C 694.09655 497.59961 746.92716 459.40094 786.67188 405.76953 C 835.32903 340.11166 866 249.72222 866 144 C 865.997 116.38691 843.61309 94.00276 816 94 L 512 94 L 208 94 z M 467 207 L 557 207 C 565.31 207 572 215.92 572 227 C 572 238.08 565.31 247 557 247 C 532 247 532 247 532 273.25 L 532 325.75 C 532 352 532 352 557 352 C 565.31 352 572 360.92 572 372 C 572 383.08 565.31 392 557 392 L 467 392 C 458.69 392 452 383.08 452 372 C 452 360.92 458.69 352 467 352 C 492 352 492 352 492 325.75 L 492 273.25 C 492 247 492 247 467 247 C 458.69 247 452 238.08 452 227 C 452 215.92 458.69 207 467 207 z "
+       style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:100;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  </g>
+</svg>

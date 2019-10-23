@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import useHttp from "../hooks/useHttp";
 import { useHistory } from "react-router";
+import Nav from "../components/Nav";
+import { Toolbar, Typography, makeStyles } from "@material-ui/core";
 import "./Game.css";
 var icons = require.context("../assets/icons", true);
 
@@ -9,13 +11,13 @@ const Game = props => {
   const history = useHistory();
   const [puzzleId, setPuzzleId] = useState(undefined);
   const [puzzleData, setPuzzleData] = useState(undefined);
-  const [time, setTime] = useState(60);
+  const [time, setTime] = useState(10);
   const [gameQuestion, setQuestion] = useState(1);
 
   const [sendReq, loading, resData] = useHttp();
 
   useEffect(() => {
-    if (path !== undefined && path != "") {
+    if (path !== undefined && path !== "") {
       sendReq("/quizzes/" + path);
     } else {
       history.push("/Puzzles");
@@ -30,17 +32,66 @@ const Game = props => {
     }
   }, [loading, resData]);
 
+  useEffect(() => {
+    var timerID = setInterval(() => {
+      setTime(time => {
+        if (time < 0) {
+          checkHandler();
+        } else return time - 1;
+      });
+    }, 1000);
+
+    return function cleanup() {
+      clearInterval(timerID);
+    };
+  });
+
+  const checkHandler = () => {
+    setQuestion(question => {
+      return question + 1;
+    });
+    setTime(time => 60);
+  };
+  const useStyles = makeStyles(theme => ({
+    root: {
+      flexGrow: 1
+    },
+    menuButton: {
+      marginRight: theme.spacing(2)
+    },
+    title: {
+      flexGrow: 1
+    },
+    icon: {
+      height: "100%",
+      borderRadius: "50%"
+    },
+    counter: {
+      float: "right"
+    }
+  }));
+
+  const classes = useStyles();
+
   return (
     <section className="game">
-      <header>
-        <h3>Zadanie {gameQuestion}</h3>
-        <div className="game__timer">{time}s</div>
-      </header>
-      {puzzleData !== undefined && (
-        <section className="game__question">
-          <p>{puzzleData.questions[gameQuestion].question}</p>
+      <Toolbar>
+        <Typography variant="h6" className={classes.title}>
+          {puzzleData !== undefined && gameQuestion <= puzzleData.question_count
+            ? "Zadanie " + gameQuestion
+            : "Wyniki"}
+        </Typography>
+        <Typography variant="h6" className={classes.counter}>
+          {puzzleData !== undefined &&
+            gameQuestion <= puzzleData.question_count &&
+            time + "s"}
+        </Typography>
+      </Toolbar>
 
-          {puzzleData.questions[gameQuestion].answers.map(answer => {
+      {puzzleData !== undefined && gameQuestion <= puzzleData.question_count && (
+        <section className="game__question">
+          <p>{puzzleData.questions[gameQuestion - 1].question}</p>
+          {puzzleData.questions[gameQuestion - 1].answers.map(answer => {
             return (
               <label key={answer}>
                 <input type="checkbox" />
@@ -50,16 +101,39 @@ const Game = props => {
           })}
         </section>
       )}
-      <nav>
-        <button>
-          <img src={icons("./arrow.png")} alt="" />
+      <Nav
+        links={[
+          {
+            to: "/Puzzles",
+            name: "Back",
+            icon: "./arrow_left.svg"
+          },
+          {
+            onClick: () => {
+              checkHandler();
+            },
+            name: "Check",
+            icon: "./ok.svg"
+          }
+        ]}
+      />
+
+      {/* <nav>
+        <button
+          onClick={() => {
+            history.push("/Puzzles");
+          }}
+        >
+          <img src={icons("./arrow_left.svg")} alt="" />
           Back
         </button>
-        <button>
-          <img src={icons("./check.png")} alt="" />
-          Check
-        </button>
-      </nav>
+        {puzzleData !== undefined && gameQuestion <= puzzleData.question_count && (
+          <button onClick={checkHandler}>
+            <img src={icons("./ok.svg")} alt="" />
+            Check
+          </button>
+        )}
+      </nav> */}
     </section>
   );
 };

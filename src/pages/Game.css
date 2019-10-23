@@ -46,6 +46,16 @@
   padding: 1.5rem;
 }
 
+.game__question > label {
+  display: flex;
+  align-items: center;
+}
+
+.game__question > label > input[type="checkbox"] {
+  margin: 0.5rem;
+  margin-right: 1rem;
+}
+
 .game > nav {
   position: absolute;
   bottom: 0;

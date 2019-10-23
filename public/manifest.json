@@ -22,13 +22,13 @@
             "sizes": "512x512"
         },
         {
-            "src": "Puzzle_white.png",
+            "src": "puzzle.svg",
             "type": "image/png",
             "sizes": "1024x1024"
         }
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#0952d6",
-    "background_color": "#252a57"
+    "theme_color": "#144aad",
+    "background_color": "#1e2832"
 }

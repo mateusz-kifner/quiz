@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
-import { AuthContext } from "../context/AuthContext";
+// import { AuthContext } from "../context/AuthContext";
 import useHttp from "../hooks/useHttp";
+import useMount from "../hooks/useMount";
 import { useHistory } from "react-router";
 
 import VerticalButton from "../components/VerticalButton";
@@ -9,7 +10,8 @@ import "./Puzzles.css";
 var icons = require.context("../assets/icons", true);
 
 const Puzzles = props => {
-  const auth = useContext(AuthContext);
+  const mounted = useMount();
+  // const auth = useContext(AuthContext);
   const [currentPuzzleId, setCurrentPuzzleId] = useState("");
   const [currentPuzzleData, setCurrentPuzzleData] = useState(undefined);
 
@@ -25,19 +27,21 @@ const Puzzles = props => {
   }, [props.location]);
 
   useEffect(() => {
-    if (currentPuzzleId !== "") {
-      console.log("send res id");
-      sendReq("/quizzes/" + currentPuzzleId);
-    } else {
-      if (puzzleList.length === 0) {
-        console.log("send res quizzes");
-        sendReq("/quizzes");
+    if (mounted) {
+      if (currentPuzzleId !== "") {
+        console.log("send res id");
+        sendReq("/quizzes/" + currentPuzzleId);
+      } else {
+        if (puzzleList.length === 0) {
+          console.log("send res quizzes");
+          sendReq("/quizzes");
+        }
       }
     }
-  }, [currentPuzzleId]);
+  }, [currentPuzzleId, mounted]);
 
   useEffect(() => {
-    if (loading === false) {
+    if (mounted && loading === false) {
       if (currentPuzzleId !== "" && resData !== undefined) {
         setCurrentPuzzleData(resData.data);
         history.push("/Puzzles/" + currentPuzzleId);
@@ -59,7 +63,7 @@ const Puzzles = props => {
         puzzleList.map(item => (
           <VerticalButton
             key={item._id}
-            icon={item.icon ? item.icon : "./Puzzle_white.png"}
+            icon={item.icon ? item.icon : "./puzzle.svg"}
             title={item.title}
             onClick={e => {
               setCurrentPuzzleId(item._id);
@@ -71,9 +75,7 @@ const Puzzles = props => {
           <div className="puzzle">
             <img
               src={icons(
-                currentPuzzleData.icon
-                  ? currentPuzzleData.icon
-                  : "./Puzzle_white.png"
+                currentPuzzleData.icon ? currentPuzzleData.icon : "./puzzle.svg"
               )}
               alt=""
             />
@@ -83,13 +85,13 @@ const Puzzles = props => {
               links={[
                 {
                   to: "/Puzzles",
-                  name: "Go back",
-                  icon: "./arrow_right.png"
+                  name: "Back",
+                  icon: "./arrow_left.svg"
                 },
                 {
                   to: "/Game/" + currentPuzzleId,
                   name: "Start",
-                  icon: "./chat_white.png"
+                  icon: "./ok.svg"
                 }
               ]}
             />

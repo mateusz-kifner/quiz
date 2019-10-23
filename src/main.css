@@ -1,121 +1,125 @@
+@import "/src/assets/fonts/PostNoBills-Jaffna/font.css";
+/* @import "/src/assets/fonts/Nunito/"; */
+
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 body,
 html,
 #root {
-    height: 100vh;
-    max-width: 100%;
-    position: relative;
-    overflow: hidden;
+  font-family: "JosefinSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 :root {
-    --theme-color: #0952d6;
-    --theme-color-dark: #252a57;
-    --background-color: #333333;
-    --font-color: #ffffff;
-    color: var(--font-color);
-    font-size: calc(10px + (16 - 10) * ((100vw - 100px) / (720 - 100)));
+  --theme-color: #144aad;
+  --theme-color-dark: #1e2031;
+  --background-color: #1e2832;
+  --font-color: #ffffff;
+  color: var(--font-color);
+  font-size: calc(10px + (16 - 10) * ((100vw - 100px) / (720 - 100)));
 }
 
 @media (min-width: 720px) {
-    :root {
-        font-size: 16px;
-    }
+  :root {
+    font-size: 16px;
+  }
 }
 
 body {
-    font-size: 1.25rem;
-    background: var(--background-color);
+  font-size: 1.25rem;
+  background: var(--background-color);
 }
 
 main {
-    z-index: 10;
+  z-index: 10;
 }
 
 /* FOOTER hack.
 this dirty hack ensures 
 that navigation is not overlaped by content*/
 main::after {
-    content: "";
-    height: 4rem;
-    display: block;
+  content: "";
+  height: 4rem;
+  display: block;
 }
 
 h1 {
-    font-size: 4rem;
+  font-size: 4rem;
 }
 
 h2,
 .text-superbig {
-    font-size: 3.05rem;
+  font-size: 3.05rem;
 }
 
 h3 {
-    font-size: 2.44rem;
+  font-size: 2.44rem;
 }
 
 h4,
 .text-verybig {
-    font-size: 1.95rem;
+  font-size: 1.95rem;
 }
 
 h5 {
-    font-size: 1.56rem;
+  font-size: 1.56rem;
 }
 
 h6,
 .text-big {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 p,
 .text-normal {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
 }
 
 button,
 input[type="submit"],
 input[type="button"] {
-    background: var(--theme-color-dark);
-    padding: 1rem;
-    font-size: 1.56rem;
-    cursor: pointer;
-    border-radius: 1rem;
-    color: var(--font-color);
-    margin: 0;
-    border: 0.25rem solid var(--theme-color-dark);
-    box-sizing: content-box;
+  background: var(--theme-color-dark);
+  padding: 1rem;
+  font-size: 1.56rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  color: var(--font-color);
+  margin: 0;
+  border: 0.25rem solid var(--theme-color-dark);
+  box-sizing: content-box;
 }
 
 button:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
-    background: var(--background-color);
-    border-color: var(--background-color);
+  background: var(--background-color);
+  border-color: var(--background-color);
 }
 
 input[type="submit"]:focus,
 input[type="button"]:focus {
-    border-color: var(--background-color);
-    background: var(--background-color);
+  border-color: var(--background-color);
+  background: var(--background-color);
 }
 
 input {
-    background: #eeeeee;
-    padding: 1rem;
-    font-size: 1.56rem;
-    border-radius: 1rem;
-    color: #000000;
-    border: 0.25rem solid var(--theme-color-dark);
+  background: #eeeeee;
+  padding: 1rem;
+  font-size: 1.56rem;
+  border-radius: 1rem;
+  color: #000000;
+  border: 0.25rem solid var(--theme-color-dark);
 }
 
 input:focus {
-    border: 0.25rem solid var(--background-color);
-    outline: none;
+  border: 0.25rem solid var(--background-color);
+  outline: none;
 }
 
 /* .move-up {
@@ -125,3 +129,34 @@ input:focus {
 .move-left {
     transform: translate(-100%, 0);
 } */
+input[type="checkbox"],
+input[type="ratio"] {
+  all: unset;
+  display: inline-block;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+input[type="checkbox"]::after {
+  content: "";
+  /* background: #000; */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  border: 0.1rem solid transparent;
+}
+
+input[type="checkbox"]::after {
+  background-image: url("./assets/icons/unchecked.png");
+}
+
+input[type="checkbox"]:checked::after {
+  background-image: url("./assets/icons/checked.png");
+}
+
+input[type="checkbox"]:focus::after {
+  border: 0.1rem solid #144aad;
+  border-radius: 0.3rem;
+}
