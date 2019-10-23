@@ -75,7 +75,7 @@ const Game = props => {
 
   return (
     <section className="game">
-      <Toolbar>
+      <Toolbar className="header">
         <Typography variant="h6" className={classes.title}>
           {puzzleData !== undefined && gameQuestion <= puzzleData.question_count
             ? "Zadanie " + gameQuestion

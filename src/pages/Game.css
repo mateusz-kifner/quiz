@@ -9,14 +9,14 @@
   margin: 0;
   padding: 0;
   border-radius: 0;
-  background: var(--theme-color-dark);
+  background: var(--background-color);
   z-index: 999;
   /* text-align: center; */
 }
 
 .game > header {
   height: 4rem;
-  background: var(--background-color);
+  background: var(--theme-color);
   width: 100%;
   position: relative;
 }
