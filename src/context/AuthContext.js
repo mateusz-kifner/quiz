@@ -61,8 +61,7 @@ const AuthContextProvider = props => {
         axiosConfig: {
           headers: {
             Authorization: "Bearer " + auth.token
-          },
-          withCredentials: true
+          }
         }
       }}
     >

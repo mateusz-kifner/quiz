@@ -20,7 +20,6 @@ const useHttp = () => {
 
   const resultHandler = res => {
     console.log("Axios res:", res);
-    if (res.headers["set-cookies"] !== undefined) console.log("cookies");
     setResData(res);
     setLoading(false);
   };

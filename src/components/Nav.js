@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
+import propTypes from "prop-types";
+
 import {
   makeStyles,
   BottomNavigation,
   BottomNavigationAction,
   Icon
 } from "@material-ui/core";
-
 import { Restore, Favorite, LocationOn } from "@material-ui/icons";
 
 // import "./Nav.css";
@@ -75,6 +76,10 @@ const Nav = props => {
       ))}
     </BottomNavigation>
   );
+};
+
+Nav.propTypes = {
+  links: propTypes.array.isRequired
 };
 
 export default Nav;
