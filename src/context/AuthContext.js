@@ -6,7 +6,7 @@ const AuthContext = React.createContext({
   token: null,
   userId: null,
   login: null,
-  host: "localhost:3001",
+  host: "http://mk-quiz.herokuapp.com",
   axiosConfig: {},
   singIn: () => {},
   singUp: () => {},
@@ -21,7 +21,7 @@ const AuthContextProvider = props => {
   });
 
   const history = useHistory();
-  const [host, setHost] = useState("http://192.168.1.116:3001");
+  const [host, setHost] = useState("http://mk-quiz.herokuapp.com");
 
   useEffect(() => {
     let token_l = localStorage.getItem("token");

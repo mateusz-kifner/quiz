@@ -2,6 +2,7 @@
   "name": "quiz2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://mk.ssa.iq.pl/quiz",
   "repository": {
     "type": "git",
     "url": "https://github.com/kifner-mateusz/quiz"
