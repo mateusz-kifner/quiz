@@ -39,3 +39,7 @@
   margin-right: 0.5em;
   object-fit: contain;
 }
+
+.MuiButtonBase-root:hover {
+  background: var(--theme-color-dark);
+}

@@ -9,7 +9,7 @@ import {
   Icon
 } from "@material-ui/core";
 import { Restore, Favorite, LocationOn } from "@material-ui/icons";
-
+import "./Nav.css";
 // import "./Nav.css";
 var icons = require.context("../assets/icons", true);
 

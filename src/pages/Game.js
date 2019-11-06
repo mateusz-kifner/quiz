@@ -11,7 +11,6 @@ var icons = require.context("../assets/icons", true);
 const Game = props => {
   let path = props.location.pathname.split("/")[2];
   const history = useHistory();
-  const [puzzleId, setPuzzleId] = useState(undefined);
   const [puzzleData, setPuzzleData] = useState(undefined);
   const [gameData, setGameData] = useState(undefined);
   const [time, setTime] = useState(10);
@@ -48,30 +47,18 @@ const Game = props => {
         }
         if (init == 1) {
           setGameData(resData.data);
-          setScore(() => {
-            const len = resData.data.game_time_limit_questions.length;
-            let a = [];
-            for (let i = 0; i < len; i++) a.push(0);
-            return a;
-          });
-          setScoreMax(() => {
-            const len = resData.data.game_time_limit_questions.length;
-            let a = [];
-            for (let i = 0; i < len; i++) a.push(0);
-            return a;
-          });
-          setAnswer(() => {
-            const len = resData.data.game_time_limit_questions.length;
-            let a = [];
-            for (let i = 0; i < len; i++) a.push(0);
-            return a;
-          });
-          setUserAnswer(() => {
-            const len = resData.data.game_time_limit_questions.length;
-            let a = [];
-            for (let i = 0; i < len; i++) a.push(0);
-            return a;
-          });
+          setScore(
+            Array(resData.data.game_time_limit_questions.length).fill(0)
+          );
+          setScoreMax(
+            Array(resData.data.game_time_limit_questions.length).fill(0)
+          );
+          setAnswer(
+            Array(resData.data.game_time_limit_questions.length).fill(0)
+          );
+          setUserAnswer(
+            Array(resData.data.game_time_limit_questions.length).fill(0)
+          );
           setNewQuestion(true);
           setInit(2);
         }
@@ -95,12 +82,9 @@ const Game = props => {
             console.log(state);
             return state;
           });
-          setUserAnswer(() => {
-            const len = gameData.game_time_limit_questions.length;
-            let a = [];
-            for (let i = 0; i < len; i++) a.push(0);
-            return a;
-          });
+          setUserAnswer(
+            Array(gameData.game_time_limit_questions.length).fill(0)
+          );
         }
       }
     }
