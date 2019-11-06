@@ -6,17 +6,16 @@ Repozytorium back-end-u można znależć [Tutaj](https://github.com/kifner-mateu
 
 Aktualnu stan prac:
 
-Funkcja | Stan
---- | ---
-Logowanie JWT | zakonczone
-Rejestracja | planowane
-Wybór Quizu | zakończone
-Rozpoczęcie gry | trwają prace
-Sprawdzanie odpowiedzi | trwają prace
-Zapis wyników | planowane
-Opcje | trwają prace
-Themes | planowane
+| Funkcja                | Stan         |
+| ---------------------- | ------------ |
+| Logowanie JWT          | zakonczone   |
+| Rejestracja            | planowane    |
+| Wybór Quizu            | zakończone   |
+| Rozpoczęcie gry        | zakończone   |
+| Sprawdzanie odpowiedzi | zakończone   |
+| Zapis wyników          | planowane    |
+| Opcje                  | trwają prace |
+| Themes                 | planowane    |
 
-[![](./src/assets/img/alpha01_small.png)](./src/assets/img/alpha01.png)
-[![](./src/assets/img/alpha02_small.png)](./src/assets/img/alpha02.png)
-[![](./src/assets/img/alpha03_small.png)](./src/assets/img/alpha03.png)
+[![](./public/screen01s.png)](./public/screen1.png)
+[![](./public/screen00s.png)](./public/screen.png)
