@@ -49,6 +49,7 @@ const App = props => {
                 to: "/Grades",
                 name: "Grades",
                 icon: "./material-ui/emoji_events.svg"
+                
               }
             ]}
           />
